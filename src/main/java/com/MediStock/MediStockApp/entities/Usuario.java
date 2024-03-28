@@ -6,6 +6,7 @@ import lombok.Data;
 import lombok.NoArgsConstructor;
 
 import java.sql.Date;
+import java.time.LocalDate;
 import java.util.List;
 
 @Entity
@@ -23,7 +24,7 @@ public class Usuario {
     @Column(name = "apellido", length = 100)
     private String apellido;
     @Column(name = "fechaNacimiento")
-    private Date fechaNacimiento;
+    private LocalDate fechaNacimiento;
     @Column(name = "departamento", length = 50)
     private String departamento;
     @Column(name = "municipio", length = 50)

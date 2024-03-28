@@ -6,6 +6,7 @@ import lombok.Data;
 import lombok.NoArgsConstructor;
 
 import java.sql.Date;
+import java.time.LocalDate;
 import java.util.List;
 
 @Entity
@@ -19,7 +20,7 @@ public class Agendamiento {
     @Column(name = "idAgendamiento")
     private long id;
     @Column(name = "fecha")
-    private Date fecha;
+    private LocalDate fecha;
     @Column(name = "motivo", length = 5000)
     private String motivo;
     @Column(name = "estado", length = 100)

@@ -4,8 +4,10 @@ import jakarta.persistence.*;
 import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
+import org.springframework.cglib.core.Local;
 
 import java.sql.Date;
+import java.time.LocalDate;
 import java.util.List;
 
 @Entity
@@ -25,7 +27,7 @@ public class Producto {
     @Column(name = "indicacionesUso", length = 500)
     private String indicacionesUso;
     @Column(name = "fechaCaducidad")
-    private Date fechaCaducidad;
+    private LocalDate fechaCaducidad;
     @Column(name = "cantidad")
     private int cantidad;
     @Column(name = "estado", length = 20)

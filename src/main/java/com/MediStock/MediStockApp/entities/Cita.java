@@ -6,6 +6,7 @@ import lombok.Data;
 import lombok.NoArgsConstructor;
 
 import java.sql.Date;
+import java.time.LocalDate;
 import java.util.List;
 
 @Entity
@@ -19,7 +20,7 @@ public class Cita {
     @Column(name = "idCita")
     private long id;
     @Column(name = "fecha")
-    private Date fecha;
+    private LocalDate fecha;
     @Column(name = "diagnostico", length = 5000)
     private String diagnostico;
     @Column(name = "tratamiento", length = 5000)
