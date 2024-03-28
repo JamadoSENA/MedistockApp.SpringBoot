@@ -32,7 +32,7 @@ public class Paciente {
     @Column(name = "fechaNacimiento")
     private LocalDate fechaNacimiento;
     @Column(name = "edad")
-    private int edad;
+    private String edad;
     @Column(name = "departamento", length = 50)
     private String departamento;
     @Column(name = "municipio", length = 50)

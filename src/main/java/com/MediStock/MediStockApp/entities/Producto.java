@@ -29,7 +29,7 @@ public class Producto {
     @Column(name = "fechaCaducidad")
     private LocalDate fechaCaducidad;
     @Column(name = "cantidad")
-    private int cantidad;
+    private String cantidad;
     @Column(name = "estado", length = 20)
     private String estado;
 

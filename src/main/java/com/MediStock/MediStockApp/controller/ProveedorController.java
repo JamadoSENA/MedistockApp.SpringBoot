@@ -91,7 +91,6 @@ public class ProveedorController {
             Proveedor proveedor = this.proveedorImp.findById(idProveedor);
 
             //CAMPOS DE LA TABLA PROVEEDOR
-            proveedor.setId(request.get("idProveedor").hashCode());
             proveedor.setNombre(request.get("nombre").toString());
             proveedor.setDepartamento(request.get("departamento").toString());
             proveedor.setMunicipio(request.get("municipio").toString());

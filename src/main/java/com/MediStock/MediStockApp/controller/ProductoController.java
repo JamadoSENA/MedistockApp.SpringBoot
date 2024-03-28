@@ -42,7 +42,7 @@ public class ProductoController {
             producto.setIndicacionesUso(request.get("indicacioneUso").toString());
             SimpleDateFormat formateador = new SimpleDateFormat("dd/MM/yyyy");
             java.sql.Date fechaAnalizada = new java.sql.Date(formateador.parse((String) request.get("fechaCaducidad")).getTime());
-            producto.setCantidad(request.get("cantidad").hashCode());
+            producto.setCantidad(request.get("cantidad").toString());
             producto.setEstado(request.get("estado").toString());
 
 
@@ -106,7 +106,7 @@ public class ProductoController {
             producto.setIndicacionesUso(request.get("indicacioneUso").toString());
             SimpleDateFormat formateador = new SimpleDateFormat("dd/MM/yyyy");
             java.sql.Date fechaAnalizada = new java.sql.Date(formateador.parse((String) request.get("fechaCaducidad")).getTime());
-            producto.setCantidad(request.get("cantidad").hashCode());
+            producto.setCantidad(request.get("cantidad").toString());
             producto.setEstado(request.get("estado").toString());
             Proveedor proveedor = proveedorImp.findById((long) Long.hashCode(request.get("FkId_Proveedor").hashCode()));
             producto.setProveedor(proveedor);

@@ -38,7 +38,7 @@ public class PacienteController {
             paciente.setApellido(request.get("apellido").toString());
             SimpleDateFormat formateador = new SimpleDateFormat("dd/MM/yyyy");
             java.sql.Date fechaAnalizada = new java.sql.Date(formateador.parse((String) request.get("fechaNacimiento")).getTime());
-            paciente.setEdad(request.get("edad").hashCode());
+            paciente.setEdad(request.get("edad").toString());
             paciente.setDepartamento(request.get("departamento").toString());
             paciente.setMunicipio(request.get("municipio").toString());
             paciente.setDireccion(request.get("direccion").toString());
@@ -99,14 +99,13 @@ public class PacienteController {
             Paciente paciente = this.pacienteImp.findById(idPaciente);
 
             //CAMPOS DE LA TABLA ROLES
-            paciente.setId(request.get("documento").hashCode());
             paciente.setTipoDocumento(request.get("tipoDocumento").toString());
             paciente.setGenero(request.get("genero").toString());
             paciente.setNombre(request.get("nombre").toString());
             paciente.setApellido(request.get("apellido").toString());
             SimpleDateFormat formateador = new SimpleDateFormat("dd/MM/yyyy");
             java.sql.Date fechaAnalizada = new java.sql.Date(formateador.parse((String) request.get("fechaNacimiento")).getTime());
-            paciente.setEdad(request.get("edad").hashCode());
+            paciente.setEdad(request.get("edad").toString());
             paciente.setDepartamento(request.get("departamento").toString());
             paciente.setMunicipio(request.get("municipio").toString());
             paciente.setDireccion(request.get("direccion").toString());

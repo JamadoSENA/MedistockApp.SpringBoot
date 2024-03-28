@@ -51,7 +51,7 @@ public class CitaController {
             cita.setRecomendaciones(request.get("recomendaciones").toString());
             Agendamiento agendamiento = agendamientoImp.findById((long) Long.hashCode(request.get("FkId_Agendamiento").hashCode()));
             cita.setAgendamiento(agendamiento);
-            Usuario usuario = usuarioImp.findById((long) Long.hashCode(request.get("FkId_Usuario").hashCode()));
+            Usuario usuario = usuarioImp.findById((long) Long.hashCode(request.get("FkId_Medico").hashCode()));
             cita.setUsuario(usuario);
 
 
@@ -116,7 +116,7 @@ public class CitaController {
             cita.setRecomendaciones(request.get("recomendaciones").toString());
             Agendamiento agendamiento = agendamientoImp.findById((long) Long.hashCode(request.get("FkId_Agendamiento").hashCode()));
             cita.setAgendamiento(agendamiento);
-            Usuario usuario = usuarioImp.findById((long) Long.hashCode(request.get("FkId_Usuario").hashCode()));
+            Usuario usuario = usuarioImp.findById((long) Long.hashCode(request.get("FkId_Medico").hashCode()));
             cita.setUsuario(usuario);
 
             this.citaImp.update(cita);
