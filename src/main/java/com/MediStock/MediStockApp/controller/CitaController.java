@@ -16,6 +16,7 @@ import org.springframework.web.bind.annotation.*;
 
 
 import java.text.SimpleDateFormat;
+import java.time.LocalDate;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
@@ -44,8 +45,7 @@ public class CitaController {
             //INSTACIA DEL OBJETO CITA
             Cita cita = new Cita();
             //CAMPOS DE LA TABLA CITA
-            SimpleDateFormat formateador = new SimpleDateFormat("dd/MM/yyyy");
-            java.sql.Date fechaAnalizada = new java.sql.Date(formateador.parse((String) request.get("fecha")).getTime());
+            cita.setFecha(LocalDate.parse(request.get("fecha").toString()));
             cita.setDiagnostico(request.get("diagnostico").toString());
             cita.setTratamiento(request.get("tratamiento").toString());
             cita.setRecomendaciones(request.get("recomendaciones").toString());
@@ -109,8 +109,7 @@ public class CitaController {
             Cita cita = this.citaImp.findById(idCita);
 
             //CAMPOS DE LA TABLA CITAS
-            SimpleDateFormat formateador = new SimpleDateFormat("dd/MM/yyyy");
-            java.sql.Date fechaAnalizada = new java.sql.Date(formateador.parse((String) request.get("fecha")).getTime());
+            cita.setFecha(LocalDate.parse(request.get("fecha").toString()));
             cita.setDiagnostico(request.get("diagnostico").toString());
             cita.setTratamiento(request.get("tratamiento").toString());
             cita.setRecomendaciones(request.get("recomendaciones").toString());

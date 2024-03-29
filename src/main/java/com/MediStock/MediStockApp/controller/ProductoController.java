@@ -13,6 +13,7 @@ import org.springframework.web.bind.annotation.*;
 
 
 import java.text.SimpleDateFormat;
+import java.time.LocalDate;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
@@ -40,8 +41,7 @@ public class ProductoController {
             producto.setNombre(request.get("nombre").toString());
             producto.setDescripcion(request.get("descripcion").toString());
             producto.setIndicacionesUso(request.get("indicacioneUso").toString());
-            SimpleDateFormat formateador = new SimpleDateFormat("dd/MM/yyyy");
-            java.sql.Date fechaAnalizada = new java.sql.Date(formateador.parse((String) request.get("fechaCaducidad")).getTime());
+            producto.setFechaCaducidad(LocalDate.parse(request.get("fechaCaducidad").toString()));
             producto.setCantidad(request.get("cantidad").toString());
             producto.setEstado(request.get("estado").toString());
 
@@ -104,8 +104,7 @@ public class ProductoController {
             producto.setNombre(request.get("nombre").toString());
             producto.setDescripcion(request.get("descripcion").toString());
             producto.setIndicacionesUso(request.get("indicacioneUso").toString());
-            SimpleDateFormat formateador = new SimpleDateFormat("dd/MM/yyyy");
-            java.sql.Date fechaAnalizada = new java.sql.Date(formateador.parse((String) request.get("fechaCaducidad")).getTime());
+            producto.setFechaCaducidad(LocalDate.parse(request.get("fechaCaducidad").toString()));
             producto.setCantidad(request.get("cantidad").toString());
             producto.setEstado(request.get("estado").toString());
             Proveedor proveedor = proveedorImp.findById((long) Long.hashCode(request.get("FkId_Proveedor").hashCode()));

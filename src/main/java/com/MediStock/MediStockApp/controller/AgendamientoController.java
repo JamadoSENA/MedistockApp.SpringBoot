@@ -11,6 +11,7 @@ import org.springframework.web.bind.annotation.*;
 
 
 import java.text.SimpleDateFormat;
+import java.time.LocalDate;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
@@ -35,8 +36,7 @@ public class AgendamientoController {
             //INSTACIA DEL OBJETO AGENDAMIENTO
             Agendamiento agendamiento = new Agendamiento();
             //CAMPOS DE LA TABLA AGENDAMIENTO
-            SimpleDateFormat formateador = new SimpleDateFormat("dd/MM/yyyy");
-            java.sql.Date fechaAnalizada = new java.sql.Date(formateador.parse((String) request.get("fecha")).getTime());
+            agendamiento.setFecha(LocalDate.parse(request.get("fecha").toString()));
             agendamiento.setMotivo(request.get("motivo").toString());
             agendamiento.setEstado(request.get("estado").toString());
             Paciente paciente = pacienteImp.findById((long) Long.hashCode(request.get("FkId_Paciente").hashCode()));
@@ -95,8 +95,7 @@ public class AgendamientoController {
             Agendamiento agendamiento = this.agendamientoImp.findById(idAgendamiento);
 
             //CAMPOS DE LA TABLA AGENDAMIENTOS
-            SimpleDateFormat formateador = new SimpleDateFormat("dd/MM/yyyy");
-            java.sql.Date fechaAnalizada = new java.sql.Date(formateador.parse((String) request.get("fecha")).getTime());
+            agendamiento.setFecha(LocalDate.parse(request.get("fecha").toString()));
             agendamiento.setMotivo(request.get("motivo").toString());
             agendamiento.setEstado(request.get("estado").toString());
             Paciente paciente = pacienteImp.findById((long) Long.hashCode(request.get("FkId_Paciente").hashCode()));

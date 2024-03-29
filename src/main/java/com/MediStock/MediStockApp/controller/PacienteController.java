@@ -9,6 +9,7 @@ import org.springframework.web.bind.annotation.*;
 
 
 import java.text.SimpleDateFormat;
+import java.time.LocalDate;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
@@ -36,8 +37,7 @@ public class PacienteController {
             paciente.setGenero(request.get("genero").toString());
             paciente.setNombre(request.get("nombre").toString());
             paciente.setApellido(request.get("apellido").toString());
-            SimpleDateFormat formateador = new SimpleDateFormat("dd/MM/yyyy");
-            java.sql.Date fechaAnalizada = new java.sql.Date(formateador.parse((String) request.get("fechaNacimiento")).getTime());
+            paciente.setFechaNacimiento(LocalDate.parse(request.get("fechaNacimiento").toString()));
             paciente.setEdad(request.get("edad").toString());
             paciente.setDepartamento(request.get("departamento").toString());
             paciente.setMunicipio(request.get("municipio").toString());
@@ -104,8 +104,7 @@ public class PacienteController {
             paciente.setGenero(request.get("genero").toString());
             paciente.setNombre(request.get("nombre").toString());
             paciente.setApellido(request.get("apellido").toString());
-            SimpleDateFormat formateador = new SimpleDateFormat("dd/MM/yyyy");
-            java.sql.Date fechaAnalizada = new java.sql.Date(formateador.parse((String) request.get("fechaNacimiento")).getTime());
+            paciente.setFechaNacimiento(LocalDate.parse(request.get("fechaNacimiento").toString()));
             paciente.setEdad(request.get("edad").toString());
             paciente.setDepartamento(request.get("departamento").toString());
             paciente.setMunicipio(request.get("municipio").toString());

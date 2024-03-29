@@ -10,6 +10,7 @@ import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
 import java.text.SimpleDateFormat;
+import java.time.LocalDate;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
@@ -36,8 +37,7 @@ public class UsuarioController {
             usuario.setDocumento(request.get("documento").toString());
             usuario.setNombre(request.get("nombre").toString());
             usuario.setApellido(request.get("apellido").toString());
-            SimpleDateFormat formateador = new SimpleDateFormat("dd/MM/yyyy");
-            java.sql.Date fechaAnalizada = new java.sql.Date(formateador.parse((String) request.get("fechaNacimiento")).getTime());
+            usuario.setFechaNacimiento(LocalDate.parse(request.get("fechaNacimiento").toString()));
             usuario.setDepartamento(request.get("departamento").toString());
             usuario.setMunicipio(request.get("municipio").toString());
             usuario.setDireccion(request.get("direccion").toString());
@@ -104,8 +104,7 @@ public class UsuarioController {
             usuario.setDocumento(request.get("documento").toString());
             usuario.setNombre(request.get("nombre").toString());
             usuario.setApellido(request.get("apellido").toString());
-            SimpleDateFormat formateador = new SimpleDateFormat("dd/MM/yyyy");
-            java.sql.Date fechaAnalizada = new java.sql.Date(formateador.parse((String) request.get("fechaNacimiento")).getTime());
+            usuario.setFechaNacimiento(LocalDate.parse(request.get("fechaNacimiento").toString()));
             usuario.setDepartamento(request.get("departamento").toString());
             usuario.setMunicipio(request.get("municipio").toString());
             usuario.setDireccion(request.get("direccion").toString());
