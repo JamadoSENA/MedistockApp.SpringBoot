@@ -18,6 +18,8 @@ public class Proveedor {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Column(name = "idProveedor")
     private long id;
+    @Column(name = "nit", length = 12)
+    private String nit;
     @Column(name = "nombre")
     private String nombre;
     @Column(name = "departamento", length = 50)

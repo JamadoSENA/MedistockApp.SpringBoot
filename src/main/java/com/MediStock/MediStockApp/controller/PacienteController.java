@@ -31,7 +31,7 @@ public class PacienteController {
             //INSTACIA DEL OBJETO PACIENTE
             Paciente paciente = new Paciente();
             //CAMPOS DE LA TABLA PACIENTE
-
+            paciente.setDocumento(request.get("documento").toString());
             paciente.setTipoDocumento(request.get("tipoDocumento").toString());
             paciente.setGenero(request.get("genero").toString());
             paciente.setNombre(request.get("nombre").toString());
@@ -99,6 +99,7 @@ public class PacienteController {
             Paciente paciente = this.pacienteImp.findById(idPaciente);
 
             //CAMPOS DE LA TABLA ROLES
+            paciente.setDocumento(request.get("documento").toString());
             paciente.setTipoDocumento(request.get("tipoDocumento").toString());
             paciente.setGenero(request.get("genero").toString());
             paciente.setNombre(request.get("nombre").toString());

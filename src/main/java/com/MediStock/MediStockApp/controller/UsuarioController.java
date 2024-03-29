@@ -33,6 +33,7 @@ public class UsuarioController {
             //INSTACIA DEL OBJETO USUARIO
             Usuario usuario = new Usuario();
             //CAMPOS DE LA TABLA USUARIO
+            usuario.setDocumento(request.get("documento").toString());
             usuario.setNombre(request.get("nombre").toString());
             usuario.setApellido(request.get("apellido").toString());
             SimpleDateFormat formateador = new SimpleDateFormat("dd/MM/yyyy");
@@ -100,6 +101,7 @@ public class UsuarioController {
             Usuario usuario = this.usuarioImp.findById(idUsuario);
 
             //CAMPOS DE LA TABLA USUARIOS
+            usuario.setDocumento(request.get("documento").toString());
             usuario.setNombre(request.get("nombre").toString());
             usuario.setApellido(request.get("apellido").toString());
             SimpleDateFormat formateador = new SimpleDateFormat("dd/MM/yyyy");

@@ -19,6 +19,8 @@ public class Usuario {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Column(name = "idUsuario")
     private long id;
+    @Column(name = "documento", length = 12)
+    private String documento;
     @Column(name = "nombre", length = 100)
     private String nombre;
     @Column(name = "apellido", length = 100)

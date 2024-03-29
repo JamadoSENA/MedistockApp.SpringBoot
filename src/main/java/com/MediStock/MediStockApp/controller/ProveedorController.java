@@ -31,6 +31,7 @@ public class ProveedorController {
             //INSTACIA DEL OBJETO PROVEEDOR
             Proveedor proveedor = new Proveedor();
             //CAMPOS DE LA TABLA PROVEEDOR
+            proveedor.setNit(request.get("nit").toString());
             proveedor.setNombre(request.get("nombre").toString());
             proveedor.setDepartamento(request.get("departamento").toString());
             proveedor.setMunicipio(request.get("municipio").toString());
@@ -91,6 +92,7 @@ public class ProveedorController {
             Proveedor proveedor = this.proveedorImp.findById(idProveedor);
 
             //CAMPOS DE LA TABLA PROVEEDOR
+            proveedor.setNit(request.get("nit").toString());
             proveedor.setNombre(request.get("nombre").toString());
             proveedor.setDepartamento(request.get("departamento").toString());
             proveedor.setMunicipio(request.get("municipio").toString());

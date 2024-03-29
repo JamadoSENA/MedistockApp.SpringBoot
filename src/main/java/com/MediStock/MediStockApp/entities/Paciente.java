@@ -21,6 +21,8 @@ public class Paciente {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Column(name = "idPaciente")
     private long id;
+    @Column(name = "documento", length = 12)
+    private String documento;
     @Column(name = "tipoDocumento", length = 4)
     private String tipoDocumento;
     @Column(name = "genero", length = 50)
