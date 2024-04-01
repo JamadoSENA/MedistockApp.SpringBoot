@@ -113,8 +113,6 @@ public class UsuarioController {
             usuario.setCorreo(request.get("correo").toString());
             usuario.setContrasenia(request.get("contrasenia").toString());
 
-            Rol rol = rolImp.findById(Integer.parseInt(request.get("FkId_Rol").toString()));
-            usuario.setRol(rol);
 
             this.usuarioImp.update(usuario);
 
