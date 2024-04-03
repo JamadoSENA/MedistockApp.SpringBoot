@@ -43,9 +43,7 @@ public class Usuario {
     private String contrasenia;
 
 //FOREING KEYS
-    @ManyToOne(fetch = FetchType.EAGER)
-    @JoinColumn(name = "FkId_Rol",nullable = false)
-    private Rol rol;
+
 
     @OneToMany(mappedBy = "usuario", cascade = CascadeType.ALL)
     private List<Cita> citas;

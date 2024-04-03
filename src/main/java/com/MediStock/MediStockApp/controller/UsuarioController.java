@@ -1,8 +1,6 @@
 package com.MediStock.MediStockApp.controller;
 
-import com.MediStock.MediStockApp.entities.Rol;
 import com.MediStock.MediStockApp.entities.Usuario;
-import com.MediStock.MediStockApp.service.imp.RolImp;
 import com.MediStock.MediStockApp.service.imp.UsuarioImp;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
@@ -10,7 +8,6 @@ import org.springframework.http.ResponseEntity;
 import org.springframework.validation.annotation.Validated;
 import org.springframework.web.bind.annotation.*;
 
-import java.text.SimpleDateFormat;
 import java.time.LocalDate;
 import java.util.HashMap;
 import java.util.List;
@@ -24,7 +21,7 @@ public class UsuarioController {
     @Autowired
     private UsuarioImp usuarioImp;
     @Autowired
-    private RolImp rolImp;
+
 
     //CONTROLLER CREATE
     @PostMapping("/create")
@@ -47,8 +44,6 @@ public class UsuarioController {
             usuario.setCorreo(request.get("correo").toString());
             usuario.setContrasenia(request.get("contrasenia").toString());
 
-            Rol rol = rolImp.findById(Integer.parseInt(request.get("FkId_Rol").toString()));
-            usuario.setRol(rol);
 
             this.usuarioImp.create(usuario);
 
