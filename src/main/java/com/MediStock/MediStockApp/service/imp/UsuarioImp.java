@@ -7,6 +7,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
+import java.util.Optional;
 
 @Service
 public class UsuarioImp implements UsuarioService {
@@ -21,6 +22,20 @@ public class UsuarioImp implements UsuarioService {
     @Override
     public Usuario findById(Long id) {
         return this.usuarioRepositorio.findById(id).orElse(null);
+    }
+
+    @Override
+    public Usuario verificarInicioSesion(String correo, String contrasenia) {
+        Optional<Usuario> usuarioOptional = usuarioRepositorio.findByCorreo(correo);
+
+        if (usuarioOptional.isPresent()) {
+            Usuario usuario = usuarioOptional.get();
+            if (usuario.getContrasenia().equals(contrasenia)) {
+                return usuario; // Inicio de sesión exitoso
+            }
+        }
+        return  null;
+
     }
 
     @Override

@@ -7,6 +7,7 @@ import com.MediStock.MediStockApp.service.imp.UsuarioImp;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
+import org.springframework.validation.annotation.Validated;
 import org.springframework.web.bind.annotation.*;
 
 import java.text.SimpleDateFormat;
@@ -59,6 +60,31 @@ public class UsuarioController {
             return new ResponseEntity<>(response, HttpStatus.BAD_GATEWAY);
         }
         return new ResponseEntity<>(response, HttpStatus.OK);
+    }
+    //Controller Login
+    @PostMapping("/login")
+    public ResponseEntity<Map<String, String>> login(@Validated @RequestBody Map<String, String> request) {
+        Map<String, String> response = new HashMap<>();
+        try {
+            String correo = request.get("correo");
+            String contrasenia = request.get("contrasenia");
+
+            // Verificar inicio de sesión utilizando el servicio UsuarioImp
+            Usuario usuario = usuarioImp.verificarInicioSesion(correo, contrasenia);
+
+            if (usuario != null) {
+                response.put("mensaje", "Inicio de sesión exitoso");
+                // Aquí puedes incluir otros datos del usuario en la respuesta si es necesario
+                // Por ejemplo, response.put("usuario", usuario.toString());
+                return new ResponseEntity<>(response, HttpStatus.OK);
+            } else {
+                response.put("mensaje", "Inicio de sesión fallido. Correo o contraseña incorrectos.");
+                return new ResponseEntity<>(response, HttpStatus.UNAUTHORIZED);
+            }
+        } catch (Exception e) {
+            response.put("mensaje", "Error al procesar la solicitud");
+            return new ResponseEntity<>(response, HttpStatus.INTERNAL_SERVER_ERROR);
+        }
     }
 
     //CONTROLLER READ

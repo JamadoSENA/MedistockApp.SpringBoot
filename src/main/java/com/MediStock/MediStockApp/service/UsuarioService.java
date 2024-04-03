@@ -7,6 +7,8 @@ import java.util.List;
 public interface UsuarioService {
     public List<Usuario> fidAll() throws Exception;
     public Usuario findById(Long id);
+
+    public Usuario verificarInicioSesion(String correo, String contrasenia);
     public void create (Usuario usuario);
     public void update (Usuario usuario);
     public void delete (Usuario usuario);
