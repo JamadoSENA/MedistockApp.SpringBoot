@@ -2,6 +2,7 @@ package com.MediStock.MediStockApp.controller;
 
 import com.MediStock.MediStockApp.entities.Agendamiento;
 import com.MediStock.MediStockApp.entities.Paciente;
+import com.MediStock.MediStockApp.entities.Proveedor;
 import com.MediStock.MediStockApp.service.imp.AgendamientoImp;
 import com.MediStock.MediStockApp.service.imp.PacienteImp;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -39,7 +40,7 @@ public class AgendamientoController {
             agendamiento.setFecha(LocalDate.parse(request.get("fecha").toString()));
             agendamiento.setMotivo(request.get("motivo").toString());
             agendamiento.setEstado(request.get("estado").toString());
-            Paciente paciente = pacienteImp.findById((long) Long.hashCode(request.get("FkId_Paciente").hashCode()));
+            Paciente paciente = pacienteImp.findById(Long.valueOf(request.get("FkId_Paciente").toString()));
             agendamiento.setPaciente(paciente);
 
             this.agendamientoImp.create(agendamiento);
@@ -98,8 +99,7 @@ public class AgendamientoController {
             agendamiento.setFecha(LocalDate.parse(request.get("fecha").toString()));
             agendamiento.setMotivo(request.get("motivo").toString());
             agendamiento.setEstado(request.get("estado").toString());
-            Paciente paciente = pacienteImp.findById((long) Long.hashCode(request.get("FkId_Paciente").hashCode()));
-            agendamiento.setPaciente(paciente);
+            Paciente paciente = pacienteImp.findById(Long.valueOf(request.get("FkId_Paciente").toString()));            agendamiento.setPaciente(paciente);
 
             this.agendamientoImp.update(agendamiento);
 

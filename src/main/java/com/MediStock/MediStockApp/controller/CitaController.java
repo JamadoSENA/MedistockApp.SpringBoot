@@ -1,9 +1,6 @@
 package com.MediStock.MediStockApp.controller;
 
-import com.MediStock.MediStockApp.entities.Agendamiento;
-import com.MediStock.MediStockApp.entities.Cita;
-import com.MediStock.MediStockApp.entities.Proveedor;
-import com.MediStock.MediStockApp.entities.Usuario;
+import com.MediStock.MediStockApp.entities.*;
 import com.MediStock.MediStockApp.service.imp.AgendamientoImp;
 import com.MediStock.MediStockApp.service.imp.CitaImp;
 import com.MediStock.MediStockApp.service.imp.PacienteImp;
@@ -49,9 +46,9 @@ public class CitaController {
             cita.setDiagnostico(request.get("diagnostico").toString());
             cita.setTratamiento(request.get("tratamiento").toString());
             cita.setRecomendaciones(request.get("recomendaciones").toString());
-            Agendamiento agendamiento = agendamientoImp.findById((long) Long.hashCode(request.get("FkId_Agendamiento").hashCode()));
+            Agendamiento agendamiento = agendamientoImp.findById(Long.valueOf(request.get("FkId_Agendamiento").toString()));
             cita.setAgendamiento(agendamiento);
-            Usuario usuario = usuarioImp.findById((long) Long.hashCode(request.get("FkId_Medico").hashCode()));
+            Usuario usuario = usuarioImp.findById(Long.valueOf(request.get("FkId_Medico").toString()));
             cita.setUsuario(usuario);
 
 

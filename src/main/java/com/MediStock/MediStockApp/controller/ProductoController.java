@@ -40,14 +40,13 @@ public class ProductoController {
             //CAMPOS DE LA TABLA PROVEEDOR
             producto.setNombre(request.get("nombre").toString());
             producto.setDescripcion(request.get("descripcion").toString());
-            producto.setIndicacionesUso(request.get("indicacioneUso").toString());
+            producto.setIndicacioneUso(request.get("indicacioneUso").toString());
             producto.setFechaCaducidad(LocalDate.parse(request.get("fechaCaducidad").toString()));
-            producto.setCantidad(request.get("cantidad").toString());
+            producto.setCantidad(Integer.parseInt(request.get("cantidad").toString()));
             producto.setEstado(request.get("estado").toString());
 
 
-            Proveedor proveedor = proveedorImp.findById((long) Long.hashCode(request.get("FkId_Proveedor").hashCode()));
-            producto.setProveedor(proveedor);
+            Proveedor proveedor = proveedorImp.findById(Long.valueOf(request.get("FkId_Proveedor").toString()));            producto.setProveedor(proveedor);
             this.productoImp.create(producto);
 
             response.put("status", "succses");
@@ -103,11 +102,11 @@ public class ProductoController {
             //CAMPOS DE LA TABLA PROVEEDOR
             producto.setNombre(request.get("nombre").toString());
             producto.setDescripcion(request.get("descripcion").toString());
-            producto.setIndicacionesUso(request.get("indicacioneUso").toString());
+            producto.setIndicacioneUso(request.get("indicacioneUso").toString());
             producto.setFechaCaducidad(LocalDate.parse(request.get("fechaCaducidad").toString()));
-            producto.setCantidad(request.get("cantidad").toString());
+            producto.setCantidad(Integer.parseInt(request.get("cantidad").toString()));
             producto.setEstado(request.get("estado").toString());
-            Proveedor proveedor = proveedorImp.findById((long) Long.hashCode(request.get("FkId_Proveedor").hashCode()));
+            Proveedor proveedor = proveedorImp.findById(Long.valueOf(request.get("FkId_Proveedor").toString()));
             producto.setProveedor(proveedor);
             this.productoImp.update(producto);
 

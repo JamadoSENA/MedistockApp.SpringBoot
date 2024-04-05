@@ -1,5 +1,6 @@
 package com.MediStock.MediStockApp.entities;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
 import jakarta.persistence.*;
 import lombok.AllArgsConstructor;
 import lombok.Data;
@@ -24,21 +25,25 @@ public class Producto {
     private String nombre;
     @Column(name = "descripcion", length = 500)
     private String descripcion;
-    @Column(name = "indicacionesUso", length = 500)
-    private String indicacionesUso;
+    @Column(name = "indicacioneUso", length = 500)
+    private String indicacioneUso;
     @Column(name = "fechaCaducidad")
     private LocalDate fechaCaducidad;
     @Column(name = "cantidad")
-    private String cantidad;
+    private int cantidad;
     @Column(name = "estado", length = 20)
     private String estado;
 
     //FOREING KEY
     @ManyToOne(fetch = FetchType.EAGER)
+    @JsonIgnore
     @JoinColumn(name = "FkId_Proveedor",nullable = false)
     private Proveedor proveedor;
 
     @ManyToMany(mappedBy = "productos")
+    @JsonIgnore
     private List<Cita> citas;
+
+
 
 }
